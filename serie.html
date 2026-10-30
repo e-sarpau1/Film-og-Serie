@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="nn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Serie – Kva skal eg sjå?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-type="serie">
+  <div class="wrap">
+    <header>
+      <a class="logo" href="index.html">Kva skal eg <span>sjå?</span></a>
+      <nav>
+        <a href="film.html">Film</a>
+        <a href="serie.html" class="on">Serie</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Serie</h1>
+      <div class="tools">
+        <input id="q" type="search" placeholder="Søk på tittel eller handling…">
+        <select id="sort">
+          <option value="rating">Høgast vurdering</option>
+          <option value="year">Nyast først</option>
+          <option value="title">Tittel A–Å</option>
+        </select>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="count" id="count"></div>
+      <div class="grid" id="grid"></div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+/* 1. Fargevariablar (Blåfargetema) */
+:root {
+  --bg: #f0f4f8;       /* Meget lys isblå bakgrunn */
+  --card: #ffffff;     /* Kvit kortbakgrunn */
+  --ink: #0a192f;      /* Mørkeblå tekst */
+  --mute: #4a6572;     /* Dempa blågrå tekst */
+  --line: #d0dbe5;     /* Lys blågrå kantlinje */
+  --acc: #0066cc;      /* Sterk blå aksentfarge */
+  --chip: #e1e9f0;     /* Lys blå knappe-bakgrunn */
+}
+
+/* Mørkt tema */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b131e;     /* Meget mørk marinblå bakgrunn */
+    --card: #152232;   /* Mørk kveldsblå kortbakgrunn */
+    --ink: #e6f1ff;    /* Meget lys blå/kvit tekst */
+    --mute: #88a0b8;   /* Dempa lyseblå tekst */
+    --line: #203346;   /* Mørk mørkeblå kantlinje */
+    --acc: #3399ff;    /* Klar, lysere blå aksentfarge */
+    --chip: #1e2d42;   /* Mørk blå knappe-bakgrunn */
+  }
+}
+
+/* 2. Grunnleggjande styling */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 18px 60px;
+}
+
+/* 3. Header og Navigasjon */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.logo span {
+  color: var(--acc);
+}
+
+nav {
+  display: flex;
+  gap: 6px;
+}
+
+nav a {
+  font: 600 0.9rem system-ui, sans-serif;
+  padding: 8px 14px;
+  border-radius: 99px;
+  text-decoration: none;
+  color: var(--mute);
+}
+
+nav a.on {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* 4. Typografi og Valg */
+h1 {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1.1;
+  margin: 0.2em 0 0.3em;
+}
+
+.lead {
+  color: var(--mute);
+  font-size: 1.1rem;
+  max-width: 34ch;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.choice {
+  display: block;
+  padding: 36px 22px;
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.choice:hover {
+  transform: translateY(-3px);
+  border-color: var(--acc);
+}
+
+.choice b {
+  display: block;
+  font-size: 1.8rem;
+}
+
+.choice small {
+  color: var(--mute);
+  font: 0.9rem system-ui, sans-serif;
+}
+
+/* 5. Verktøy, Søk og Filter (Chips) */
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0 14px;
+}
+
+input, select {
+  font: 1rem system-ui, sans-serif;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.chip {
+  font: 0.85rem system-ui, sans-serif;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--chip);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.chip.on {
+  background: var(--acc);
+  color: #ffffff;
+}
+
+.count {
+  color: var(--mute);
+  font: 0.9rem system-ui, sans-serif;
+  margin-bottom: 12px;
+}
+
+/* 6. Kort og Rutenett */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.card h3 {
+  margin: 0 0 2px;
+  font-size: 1.2rem;
+}
+
+.meta {
+  color: var(--mute);
+  font: 0.85rem system-ui, sans-serif;
+  margin-bottom: 8px;
+}
+
+.rate {
+  float: right;
+  font: 700 0.9rem system-ui, sans-serif;
+  color: var(--acc);
+}
+
+.card p {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+}
+
+.tag {
+  display: inline-block;
+  font: 0.75rem system-ui, sans-serif;
+  background: var(--chip);
+  padding: 2px 9px;
+  border-radius: 99px;
+  margin: 8px 4px 0 0;
+}
+
+.none {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--mute);
+}
+
+/* 7. Responsivt oppsett */
+@media (max-width: 520px) {
+  .choices {
+    grid-template-columns: 1fr;
+  }
+}
